@@ -42,6 +42,15 @@ def check_diffstd(series_segments, segment_means, num_series, num_segments):
             series_segments[i][j]['diffstd_distance'] = diffstd(series_segments[i][j], segment_means[j])
     return series_segments
 
+def add_label(df_all, max_perc):
+    df_all['actual_label'] = 0
+    for engine in list(set(df_all['engine'])):
+        max_cycle = df_all[df_all['engine'] == engine]['cycle'].max() 
+        condition = (df_all['engine'] == engine) & (df_all['cycle'] > max_cycle*max_perc)
+        df_all.loc[condition, 'actual_label'] = 1
+    df_all = df_all.fillna(0)
+    return df_all
+
 def anomaly_diffstd(df_all, df_full):
     series = [df_all[col] for col in df_all.columns.drop('engine', errors='ignore')]
     num_series = len(series)
@@ -78,13 +87,8 @@ def anomaly_diffstd(df_all, df_full):
         for i in range(len(df_result)):
             if df_result.loc[i, col] > sens_dict[col]:
                 df_result.loc[i, 'pred_label'] = 1
-
-    df_full['actual_label'] = 0
-    for engine in list(set(df_full['engine'])):
-        max_cycle = df_full[df_full['engine'] == engine]['cycle'].max() 
-        condition = (df_full['engine'] == engine) & (df_full['cycle'] > max_cycle - 25)
-        df_full.loc[condition, 'actual_label'] = 1
-    df_full = df_full.fillna(0)
+    
+    df_full = add_label(df_full, 0.9)
     print(classification_report(df_full['actual_label'][:len(df_result)], df_result['pred_label']))
     return df_result['pred_label']
 
@@ -96,7 +100,7 @@ if __name__ =="__main__":
     data_clean = [data.drop(columns = drop_col) for data in data_train]
 
     df_full = pd.DataFrame()
-    for i in range(4):
+    for i in range(len(data_clean)):
         df_full =pd.concat([df_full, data_clean[i]])
 
     temp_cols = ['Fan_inlet_temperature_R', 'LPC_outlet_temperature_R', 'HPC_outlet_temperature_R', 'LPT_outlet_temperature_R']
@@ -104,9 +108,9 @@ if __name__ =="__main__":
     press_cols = ['bypass_duct_pressure_psia', 'HPC_outlet_pressure_psia','Engine_pressure_ratioP50_P2', 'HPC_outlet_Static_pressure_psia']
     air_flow_cols = ['High_pressure_turbines_Cool_air_flow', 'Low_pressure_turbines_Cool_air_flow']
     # diff_col_type = [temp_cols,rpm_cols,press_cols,air_flow_cols]
-    diff_col_type = [press_cols]
+    diff_col_type = [air_flow_cols]
     for col_typ in diff_col_type:
         df_all = df_full[col_typ]
-        print(f"Report for {col_typ}")
+        print(f"Report for {str(col_typ)}")
         result = anomaly_diffstd(df_all, df_full)
-        result.to_csv(f"{col_typ}_result.csv", index = False)
+        result.to_csv(f"{str(col_typ)}_result.csv", index = False)

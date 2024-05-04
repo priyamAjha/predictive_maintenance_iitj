@@ -1,10 +1,10 @@
-num_workers: 8 # Reduce this if you have low number of CPU cores
-batch_size: 2  # Reduce if not enough GPU memory available
+num_workers: 4 # Reduce this if you have low number of CPU cores
+batch_size: 100  # Reduce if not enough GPU memory available
 context_length: 24 #96 #48 hours
 forecast_horizon: 8 #8 # 4 hours 
 patch_length: 8 
-epochs: 10
-learning_rate: 0.0001
+epochs: 1
+learning_rate: 0.001
 train_data_split: 0.75
 valid_data_split: 0.10
 patch_foundation_model_path: "../model/patch_model"
