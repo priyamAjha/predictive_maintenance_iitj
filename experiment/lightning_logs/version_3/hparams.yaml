@@ -1,0 +1,2346 @@
+attention_head_size: 1
+categorical_groups: &id006 {}
+causal_attention: true
+dataset_parameters:
+  add_encoder_length: false
+  add_relative_time_idx: false
+  add_target_scales: false
+  allow_missing_timesteps: true
+  categorical_encoders:
+    __group_id__engine: !!python/object:pytorch_forecasting.data.encoders.NaNLabelEncoder
+      add_nan: false
+      classes_:
+        '1': 0
+        '10': 1
+        '100': 2
+        '11': 3
+        '12': 4
+        '13': 5
+        '14': 6
+        '15': 7
+        '16': 8
+        '17': 9
+        '18': 10
+        '19': 11
+        '2': 12
+        '20': 13
+        '21': 14
+        '22': 15
+        '23': 16
+        '24': 17
+        '25': 18
+        '26': 19
+        '27': 20
+        '28': 21
+        '29': 22
+        '3': 23
+        '30': 24
+        '31': 25
+        '32': 26
+        '33': 27
+        '34': 28
+        '35': 29
+        '36': 30
+        '37': 31
+        '38': 32
+        '39': 33
+        '4': 34
+        '40': 35
+        '41': 36
+        '42': 37
+        '43': 38
+        '44': 39
+        '45': 40
+        '46': 41
+        '47': 42
+        '48': 43
+        '49': 44
+        '5': 45
+        '50': 46
+        '51': 47
+        '52': 48
+        '53': 49
+        '54': 50
+        '55': 51
+        '56': 52
+        '57': 53
+        '58': 54
+        '59': 55
+        '6': 56
+        '60': 57
+        '61': 58
+        '62': 59
+        '63': 60
+        '64': 61
+        '65': 62
+        '66': 63
+        '67': 64
+        '68': 65
+        '69': 66
+        '7': 67
+        '70': 68
+        '71': 69
+        '72': 70
+        '73': 71
+        '74': 72
+        '75': 73
+        '76': 74
+        '77': 75
+        '78': 76
+        '79': 77
+        '8': 78
+        '80': 79
+        '81': 80
+        '82': 81
+        '83': 82
+        '84': 83
+        '85': 84
+        '86': 85
+        '87': 86
+        '88': 87
+        '89': 88
+        '9': 89
+        '90': 90
+        '91': 91
+        '92': 92
+        '93': 93
+        '94': 94
+        '95': 95
+        '96': 96
+        '97': 97
+        '98': 98
+        '99': 99
+      classes_vector_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - &id001 !!python/name:numpy.ndarray ''
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 100
+        - !!python/object/apply:numpy.dtype
+          args:
+          - U3
+          - false
+          - true
+          state: !!python/tuple
+          - 3
+          - <
+          - null
+          - null
+          - null
+          - 12
+          - 4
+          - 8
+        - false
+        - !!binary |
+          MQAAAAAAAAAAAAAAMQAAADAAAAAAAAAAMQAAADAAAAAwAAAAMQAAADEAAAAAAAAAMQAAADIAAAAA
+          AAAAMQAAADMAAAAAAAAAMQAAADQAAAAAAAAAMQAAADUAAAAAAAAAMQAAADYAAAAAAAAAMQAAADcA
+          AAAAAAAAMQAAADgAAAAAAAAAMQAAADkAAAAAAAAAMgAAAAAAAAAAAAAAMgAAADAAAAAAAAAAMgAA
+          ADEAAAAAAAAAMgAAADIAAAAAAAAAMgAAADMAAAAAAAAAMgAAADQAAAAAAAAAMgAAADUAAAAAAAAA
+          MgAAADYAAAAAAAAAMgAAADcAAAAAAAAAMgAAADgAAAAAAAAAMgAAADkAAAAAAAAAMwAAAAAAAAAA
+          AAAAMwAAADAAAAAAAAAAMwAAADEAAAAAAAAAMwAAADIAAAAAAAAAMwAAADMAAAAAAAAAMwAAADQA
+          AAAAAAAAMwAAADUAAAAAAAAAMwAAADYAAAAAAAAAMwAAADcAAAAAAAAAMwAAADgAAAAAAAAAMwAA
+          ADkAAAAAAAAANAAAAAAAAAAAAAAANAAAADAAAAAAAAAANAAAADEAAAAAAAAANAAAADIAAAAAAAAA
+          NAAAADMAAAAAAAAANAAAADQAAAAAAAAANAAAADUAAAAAAAAANAAAADYAAAAAAAAANAAAADcAAAAA
+          AAAANAAAADgAAAAAAAAANAAAADkAAAAAAAAANQAAAAAAAAAAAAAANQAAADAAAAAAAAAANQAAADEA
+          AAAAAAAANQAAADIAAAAAAAAANQAAADMAAAAAAAAANQAAADQAAAAAAAAANQAAADUAAAAAAAAANQAA
+          ADYAAAAAAAAANQAAADcAAAAAAAAANQAAADgAAAAAAAAANQAAADkAAAAAAAAANgAAAAAAAAAAAAAA
+          NgAAADAAAAAAAAAANgAAADEAAAAAAAAANgAAADIAAAAAAAAANgAAADMAAAAAAAAANgAAADQAAAAA
+          AAAANgAAADUAAAAAAAAANgAAADYAAAAAAAAANgAAADcAAAAAAAAANgAAADgAAAAAAAAANgAAADkA
+          AAAAAAAANwAAAAAAAAAAAAAANwAAADAAAAAAAAAANwAAADEAAAAAAAAANwAAADIAAAAAAAAANwAA
+          ADMAAAAAAAAANwAAADQAAAAAAAAANwAAADUAAAAAAAAANwAAADYAAAAAAAAANwAAADcAAAAAAAAA
+          NwAAADgAAAAAAAAANwAAADkAAAAAAAAAOAAAAAAAAAAAAAAAOAAAADAAAAAAAAAAOAAAADEAAAAA
+          AAAAOAAAADIAAAAAAAAAOAAAADMAAAAAAAAAOAAAADQAAAAAAAAAOAAAADUAAAAAAAAAOAAAADYA
+          AAAAAAAAOAAAADcAAAAAAAAAOAAAADgAAAAAAAAAOAAAADkAAAAAAAAAOQAAAAAAAAAAAAAAOQAA
+          ADAAAAAAAAAAOQAAADEAAAAAAAAAOQAAADIAAAAAAAAAOQAAADMAAAAAAAAAOQAAADQAAAAAAAAA
+          OQAAADUAAAAAAAAAOQAAADYAAAAAAAAAOQAAADcAAAAAAAAAOQAAADgAAAAAAAAAOQAAADkAAAAA
+          AAAA
+      warn: true
+    engine: !!python/object:pytorch_forecasting.data.encoders.NaNLabelEncoder
+      add_nan: true
+      classes_: &id007
+        '1': 1
+        '10': 2
+        '100': 3
+        '11': 4
+        '12': 5
+        '13': 6
+        '14': 7
+        '15': 8
+        '16': 9
+        '17': 10
+        '18': 11
+        '19': 12
+        '2': 13
+        '20': 14
+        '21': 15
+        '22': 16
+        '23': 17
+        '24': 18
+        '25': 19
+        '26': 20
+        '27': 21
+        '28': 22
+        '29': 23
+        '3': 24
+        '30': 25
+        '31': 26
+        '32': 27
+        '33': 28
+        '34': 29
+        '35': 30
+        '36': 31
+        '37': 32
+        '38': 33
+        '39': 34
+        '4': 35
+        '40': 36
+        '41': 37
+        '42': 38
+        '43': 39
+        '44': 40
+        '45': 41
+        '46': 42
+        '47': 43
+        '48': 44
+        '49': 45
+        '5': 46
+        '50': 47
+        '51': 48
+        '52': 49
+        '53': 50
+        '54': 51
+        '55': 52
+        '56': 53
+        '57': 54
+        '58': 55
+        '59': 56
+        '6': 57
+        '60': 58
+        '61': 59
+        '62': 60
+        '63': 61
+        '64': 62
+        '65': 63
+        '66': 64
+        '67': 65
+        '68': 66
+        '69': 67
+        '7': 68
+        '70': 69
+        '71': 70
+        '72': 71
+        '73': 72
+        '74': 73
+        '75': 74
+        '76': 75
+        '77': 76
+        '78': 77
+        '79': 78
+        '8': 79
+        '80': 80
+        '81': 81
+        '82': 82
+        '83': 83
+        '84': 84
+        '85': 85
+        '86': 86
+        '87': 87
+        '88': 88
+        '89': 89
+        '9': 90
+        '90': 91
+        '91': 92
+        '92': 93
+        '93': 94
+        '94': 95
+        '95': 96
+        '96': 97
+        '97': 98
+        '98': 99
+        '99': 100
+        nan: 0
+      classes_vector_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 101
+        - !!python/object/apply:numpy.dtype
+          args:
+          - U3
+          - false
+          - true
+          state: !!python/tuple
+          - 3
+          - <
+          - null
+          - null
+          - null
+          - 12
+          - 4
+          - 8
+        - false
+        - !!binary |
+          bgAAAGEAAABuAAAAMQAAAAAAAAAAAAAAMQAAADAAAAAAAAAAMQAAADAAAAAwAAAAMQAAADEAAAAA
+          AAAAMQAAADIAAAAAAAAAMQAAADMAAAAAAAAAMQAAADQAAAAAAAAAMQAAADUAAAAAAAAAMQAAADYA
+          AAAAAAAAMQAAADcAAAAAAAAAMQAAADgAAAAAAAAAMQAAADkAAAAAAAAAMgAAAAAAAAAAAAAAMgAA
+          ADAAAAAAAAAAMgAAADEAAAAAAAAAMgAAADIAAAAAAAAAMgAAADMAAAAAAAAAMgAAADQAAAAAAAAA
+          MgAAADUAAAAAAAAAMgAAADYAAAAAAAAAMgAAADcAAAAAAAAAMgAAADgAAAAAAAAAMgAAADkAAAAA
+          AAAAMwAAAAAAAAAAAAAAMwAAADAAAAAAAAAAMwAAADEAAAAAAAAAMwAAADIAAAAAAAAAMwAAADMA
+          AAAAAAAAMwAAADQAAAAAAAAAMwAAADUAAAAAAAAAMwAAADYAAAAAAAAAMwAAADcAAAAAAAAAMwAA
+          ADgAAAAAAAAAMwAAADkAAAAAAAAANAAAAAAAAAAAAAAANAAAADAAAAAAAAAANAAAADEAAAAAAAAA
+          NAAAADIAAAAAAAAANAAAADMAAAAAAAAANAAAADQAAAAAAAAANAAAADUAAAAAAAAANAAAADYAAAAA
+          AAAANAAAADcAAAAAAAAANAAAADgAAAAAAAAANAAAADkAAAAAAAAANQAAAAAAAAAAAAAANQAAADAA
+          AAAAAAAANQAAADEAAAAAAAAANQAAADIAAAAAAAAANQAAADMAAAAAAAAANQAAADQAAAAAAAAANQAA
+          ADUAAAAAAAAANQAAADYAAAAAAAAANQAAADcAAAAAAAAANQAAADgAAAAAAAAANQAAADkAAAAAAAAA
+          NgAAAAAAAAAAAAAANgAAADAAAAAAAAAANgAAADEAAAAAAAAANgAAADIAAAAAAAAANgAAADMAAAAA
+          AAAANgAAADQAAAAAAAAANgAAADUAAAAAAAAANgAAADYAAAAAAAAANgAAADcAAAAAAAAANgAAADgA
+          AAAAAAAANgAAADkAAAAAAAAANwAAAAAAAAAAAAAANwAAADAAAAAAAAAANwAAADEAAAAAAAAANwAA
+          ADIAAAAAAAAANwAAADMAAAAAAAAANwAAADQAAAAAAAAANwAAADUAAAAAAAAANwAAADYAAAAAAAAA
+          NwAAADcAAAAAAAAANwAAADgAAAAAAAAANwAAADkAAAAAAAAAOAAAAAAAAAAAAAAAOAAAADAAAAAA
+          AAAAOAAAADEAAAAAAAAAOAAAADIAAAAAAAAAOAAAADMAAAAAAAAAOAAAADQAAAAAAAAAOAAAADUA
+          AAAAAAAAOAAAADYAAAAAAAAAOAAAADcAAAAAAAAAOAAAADgAAAAAAAAAOAAAADkAAAAAAAAAOQAA
+          AAAAAAAAAAAAOQAAADAAAAAAAAAAOQAAADEAAAAAAAAAOQAAADIAAAAAAAAAOQAAADMAAAAAAAAA
+          OQAAADQAAAAAAAAAOQAAADUAAAAAAAAAOQAAADYAAAAAAAAAOQAAADcAAAAAAAAAOQAAADgAAAAA
+          AAAAOQAAADkAAAAAAAAA
+      warn: true
+  constant_fill_strategy: {}
+  group_ids:
+  - engine
+  lags: {}
+  max_encoder_length: 20
+  max_prediction_length: 1
+  min_encoder_length: 20
+  min_prediction_idx: !!python/object/apply:numpy.core.multiarray.scalar
+  - &id002 !!python/object/apply:numpy.dtype
+    args:
+    - i8
+    - false
+    - true
+    state: !!python/tuple
+    - 3
+    - <
+    - null
+    - null
+    - null
+    - -1
+    - -1
+    - 0
+  - !!binary |
+    AAAAAAAAAAA=
+  min_prediction_length: 1
+  predict_mode: false
+  randomize_length: null
+  scalers:
+    Bleed_Enthalpy: !!python/object:sklearn.preprocessing._data.StandardScaler
+      _sklearn_version: 1.5.1
+      copy: true
+      feature_names_in_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - &id004 !!python/object/apply:numpy.dtype
+          args:
+          - O8
+          - false
+          - true
+          state: !!python/tuple
+          - 3
+          - '|'
+          - null
+          - null
+          - null
+          - -1
+          - -1
+          - 63
+        - false
+        - - Bleed_Enthalpy
+      mean_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - &id003 !!python/object/apply:numpy.dtype
+          args:
+          - f8
+          - false
+          - true
+          state: !!python/tuple
+          - 3
+          - <
+          - null
+          - null
+          - null
+          - -1
+          - -1
+          - 0
+        - false
+        - !!binary |
+          hekNJOEPVL8=
+      n_features_in_: 1
+      n_samples_seen_: !!python/object/apply:numpy.core.multiarray.scalar
+      - *id002
+      - !!binary |
+        WjAAAAAAAAA=
+      scale_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          ekdv9Lne7z8=
+      var_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          DbzvgZa97z8=
+      with_mean: true
+      with_std: true
+    Burner_fuel_air_ratio: !!python/object:sklearn.preprocessing._data.StandardScaler
+      _sklearn_version: 1.5.1
+      copy: true
+      feature_names_in_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id004
+        - false
+        - - Burner_fuel_air_ratio
+      mean_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          AAAAAAAAcLw=
+      n_features_in_: 1
+      n_samples_seen_: !!python/object/apply:numpy.core.multiarray.scalar
+      - *id002
+      - !!binary |
+        WjAAAAAAAAA=
+      scale_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          AAAAAAAA8D8=
+      var_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          AAAAAAAAAAA=
+      with_mean: true
+      with_std: true
+    Bypass_Ratio: !!python/object:sklearn.preprocessing._data.StandardScaler
+      _sklearn_version: 1.5.1
+      copy: true
+      feature_names_in_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id004
+        - false
+        - - Bypass_Ratio
+      mean_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          wGfZdjRvY78=
+      n_features_in_: 1
+      n_samples_seen_: !!python/object/apply:numpy.core.multiarray.scalar
+      - *id002
+      - !!binary |
+        WjAAAAAAAAA=
+      scale_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          LjoxRR0N8D8=
+      var_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          WXAoSkUa8D8=
+      with_mean: true
+      with_std: true
+    Corrected_core_speed_rpm: !!python/object:sklearn.preprocessing._data.StandardScaler
+      _sklearn_version: 1.5.1
+      copy: true
+      feature_names_in_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id004
+        - false
+        - - Corrected_core_speed_rpm
+      mean_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          6FYlhYpTYz8=
+      n_features_in_: 1
+      n_samples_seen_: !!python/object/apply:numpy.core.multiarray.scalar
+      - *id002
+      - !!binary |
+        WjAAAAAAAAA=
+      scale_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          aMFDXof97z8=
+      var_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          jnpi7Q777z8=
+      with_mean: true
+      with_std: true
+    Corrected_fan_speed_rpm: !!python/object:sklearn.preprocessing._data.StandardScaler
+      _sklearn_version: 1.5.1
+      copy: true
+      feature_names_in_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id004
+        - false
+        - - Corrected_fan_speed_rpm
+      mean_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          1gqe44hsWj8=
+      n_features_in_: 1
+      n_samples_seen_: !!python/object/apply:numpy.core.multiarray.scalar
+      - *id002
+      - !!binary |
+        WjAAAAAAAAA=
+      scale_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          Q5HvbX0K8D8=
+      var_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          rtZ/vAEV8D8=
+      with_mean: true
+      with_std: true
+    Engine_pressure_ratioP50_P2: !!python/object:sklearn.preprocessing._data.StandardScaler
+      _sklearn_version: 1.5.1
+      copy: true
+      feature_names_in_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id004
+        - false
+        - - Engine_pressure_ratioP50_P2
+      mean_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          AAAAAAAAAAA=
+      n_features_in_: 1
+      n_samples_seen_: !!python/object/apply:numpy.core.multiarray.scalar
+      - *id002
+      - !!binary |
+        WjAAAAAAAAA=
+      scale_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          AAAAAAAA8D8=
+      var_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          AAAAAAAAAAA=
+      with_mean: true
+      with_std: true
+    Fan_inlet_Pressure_psia: !!python/object:sklearn.preprocessing._data.StandardScaler
+      _sklearn_version: 1.5.1
+      copy: true
+      feature_names_in_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id004
+        - false
+        - - Fan_inlet_Pressure_psia
+      mean_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          AAAAAAAA4Lw=
+      n_features_in_: 1
+      n_samples_seen_: !!python/object/apply:numpy.core.multiarray.scalar
+      - *id002
+      - !!binary |
+        WjAAAAAAAAA=
+      scale_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          AAAAAAAA8D8=
+      var_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          AAAAAAAAAAA=
+      with_mean: true
+      with_std: true
+    Fan_inlet_temperature_R: !!python/object:sklearn.preprocessing._data.StandardScaler
+      _sklearn_version: 1.5.1
+      copy: true
+      feature_names_in_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id004
+        - false
+        - - Fan_inlet_temperature_R
+      mean_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          AAAAAAAAAAA=
+      n_features_in_: 1
+      n_samples_seen_: !!python/object/apply:numpy.core.multiarray.scalar
+      - *id002
+      - !!binary |
+        WjAAAAAAAAA=
+      scale_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          AAAAAAAA8D8=
+      var_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          AAAAAAAAAAA=
+      with_mean: true
+      with_std: true
+    HPC_outlet_Static_pressure_psia: !!python/object:sklearn.preprocessing._data.StandardScaler
+      _sklearn_version: 1.5.1
+      copy: true
+      feature_names_in_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id004
+        - false
+        - - HPC_outlet_Static_pressure_psia
+      mean_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          B+DlDlMJaz8=
+      n_features_in_: 1
+      n_samples_seen_: !!python/object/apply:numpy.core.multiarray.scalar
+      - *id002
+      - !!binary |
+        WjAAAAAAAAA=
+      scale_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          ZsNW0ZHs7z8=
+      var_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          01AAby/Z7z8=
+      with_mean: true
+      with_std: true
+    HPC_outlet_pressure_psia: !!python/object:sklearn.preprocessing._data.StandardScaler
+      _sklearn_version: 1.5.1
+      copy: true
+      feature_names_in_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id004
+        - false
+        - - HPC_outlet_pressure_psia
+      mean_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          gehfOflRQ78=
+      n_features_in_: 1
+      n_samples_seen_: !!python/object/apply:numpy.core.multiarray.scalar
+      - *id002
+      - !!binary |
+        WjAAAAAAAAA=
+      scale_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          BDmQnXLp7z8=
+      var_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          YXj4H/XS7z8=
+      with_mean: true
+      with_std: true
+    HPC_outlet_temperature_R: !!python/object:sklearn.preprocessing._data.StandardScaler
+      _sklearn_version: 1.5.1
+      copy: true
+      feature_names_in_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id004
+        - false
+        - - HPC_outlet_temperature_R
+      mean_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          /da0san9h78=
+      n_features_in_: 1
+      n_samples_seen_: !!python/object/apply:numpy.core.multiarray.scalar
+      - *id002
+      - !!binary |
+        WjAAAAAAAAA=
+      scale_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          kYGmQvXj7z8=
+      var_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          ePobGAPI7z8=
+      with_mean: true
+      with_std: true
+    High_pressure_turbines_Cool_air_flow: !!python/object:sklearn.preprocessing._data.StandardScaler
+      _sklearn_version: 1.5.1
+      copy: true
+      feature_names_in_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id004
+        - false
+        - - High_pressure_turbines_Cool_air_flow
+      mean_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          yhK795tjZL8=
+      n_features_in_: 1
+      n_samples_seen_: !!python/object/apply:numpy.core.multiarray.scalar
+      - *id002
+      - !!binary |
+        WjAAAAAAAAA=
+      scale_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          qOkxP6Xz7z8=
+      var_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          8c51Q0/n7z8=
+      with_mean: true
+      with_std: true
+    LPC_outlet_temperature_R: !!python/object:sklearn.preprocessing._data.StandardScaler
+      _sklearn_version: 1.5.1
+      copy: true
+      feature_names_in_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id004
+        - false
+        - - LPC_outlet_temperature_R
+      mean_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          ziVGRkFA9b4=
+      n_features_in_: 1
+      n_samples_seen_: !!python/object/apply:numpy.core.multiarray.scalar
+      - *id002
+      - !!binary |
+        WjAAAAAAAAA=
+      scale_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          /vY54qjY7z8=
+      var_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          s6q5IYKx7z8=
+      with_mean: true
+      with_std: true
+    LPT_outlet_temperature_R: !!python/object:sklearn.preprocessing._data.StandardScaler
+      _sklearn_version: 1.5.1
+      copy: true
+      feature_names_in_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id004
+        - false
+        - - LPT_outlet_temperature_R
+      mean_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          BaFSOPJ1dL8=
+      n_features_in_: 1
+      n_samples_seen_: !!python/object/apply:numpy.core.multiarray.scalar
+      - *id002
+      - !!binary |
+        WjAAAAAAAAA=
+      scale_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          rVkqnYT77z8=
+      var_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          wCkJ2wn37z8=
+      with_mean: true
+      with_std: true
+    Low_pressure_turbines_Cool_air_flow: !!python/object:sklearn.preprocessing._data.StandardScaler
+      _sklearn_version: 1.5.1
+      copy: true
+      feature_names_in_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id004
+        - false
+        - - Low_pressure_turbines_Cool_air_flow
+      mean_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          HSKO0BbZZr8=
+      n_features_in_: 1
+      n_samples_seen_: !!python/object/apply:numpy.core.multiarray.scalar
+      - *id002
+      - !!binary |
+        WjAAAAAAAAA=
+      scale_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          AvDz8w3w7z8=
+      var_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          jQH62SPg7z8=
+      with_mean: true
+      with_std: true
+    Physical_core_speed_rpm: !!python/object:sklearn.preprocessing._data.StandardScaler
+      _sklearn_version: 1.5.1
+      copy: true
+      feature_names_in_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id004
+        - false
+        - - Physical_core_speed_rpm
+      mean_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          C7ahoyG5Uj8=
+      n_features_in_: 1
+      n_samples_seen_: !!python/object/apply:numpy.core.multiarray.scalar
+      - *id002
+      - !!binary |
+        WjAAAAAAAAA=
+      scale_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          34A0fXj/7z8=
+      var_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          adum/PD+7z8=
+      with_mean: true
+      with_std: true
+    Physical_fan_speed_rpm: !!python/object:sklearn.preprocessing._data.StandardScaler
+      _sklearn_version: 1.5.1
+      copy: true
+      feature_names_in_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id004
+        - false
+        - - Physical_fan_speed_rpm
+      mean_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          mBU0Ta+rUL8=
+      n_features_in_: 1
+      n_samples_seen_: !!python/object/apply:numpy.core.multiarray.scalar
+      - *id002
+      - !!binary |
+        WjAAAAAAAAA=
+      scale_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          p+g0L9ID8D8=
+      var_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          3ZwESKUH8D8=
+      with_mean: true
+      with_std: true
+    Ratio_of_fuel_flow_to_Ps30_pps_psia: !!python/object:sklearn.preprocessing._data.StandardScaler
+      _sklearn_version: 1.5.1
+      copy: true
+      feature_names_in_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id004
+        - false
+        - - Ratio_of_fuel_flow_to_Ps30_pps_psia
+      mean_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          QsYZu1PfST8=
+      n_features_in_: 1
+      n_samples_seen_: !!python/object/apply:numpy.core.multiarray.scalar
+      - *id002
+      - !!binary |
+        WjAAAAAAAAA=
+      scale_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          YxKkevPw7z8=
+      var_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          JREKCe7h7z8=
+      with_mean: true
+      with_std: true
+    Required_fan_conversion_speed: !!python/object:sklearn.preprocessing._data.StandardScaler
+      _sklearn_version: 1.5.1
+      copy: true
+      feature_names_in_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id004
+        - false
+        - - Required_fan_conversion_speed
+      mean_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          AAAAAAAAAAA=
+      n_features_in_: 1
+      n_samples_seen_: !!python/object/apply:numpy.core.multiarray.scalar
+      - *id002
+      - !!binary |
+        WjAAAAAAAAA=
+      scale_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          AAAAAAAA8D8=
+      var_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          AAAAAAAAAAA=
+      with_mean: true
+      with_std: true
+    Required_fan_speed: !!python/object:sklearn.preprocessing._data.StandardScaler
+      _sklearn_version: 1.5.1
+      copy: true
+      feature_names_in_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id004
+        - false
+        - - Required_fan_speed
+      mean_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          AAAAAAAAAAA=
+      n_features_in_: 1
+      n_samples_seen_: !!python/object/apply:numpy.core.multiarray.scalar
+      - *id002
+      - !!binary |
+        WjAAAAAAAAA=
+      scale_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          AAAAAAAA8D8=
+      var_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          AAAAAAAAAAA=
+      with_mean: true
+      with_std: true
+    bypass_duct_pressure_psia: !!python/object:sklearn.preprocessing._data.StandardScaler
+      _sklearn_version: 1.5.1
+      copy: true
+      feature_names_in_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id004
+        - false
+        - - bypass_duct_pressure_psia
+      mean_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          lnYiWcJBYL8=
+      n_features_in_: 1
+      n_samples_seen_: !!python/object/apply:numpy.core.multiarray.scalar
+      - *id002
+      - !!binary |
+        WjAAAAAAAAA=
+      scale_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          OpIAbgEc8D8=
+      var_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          KUcC4TM48D8=
+      with_mean: true
+      with_std: true
+    setting_1: !!python/object:sklearn.preprocessing._data.StandardScaler
+      _sklearn_version: 1.5.1
+      copy: true
+      feature_names_in_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id004
+        - false
+        - - setting_1
+      mean_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          RaUYLVTPaD8=
+      n_features_in_: 1
+      n_samples_seen_: !!python/object/apply:numpy.core.multiarray.scalar
+      - *id002
+      - !!binary |
+        WjAAAAAAAAA=
+      scale_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          wIjGIZYe8D8=
+      var_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          knMMvGY98D8=
+      with_mean: true
+      with_std: true
+    setting_2: !!python/object:sklearn.preprocessing._data.StandardScaler
+      _sklearn_version: 1.5.1
+      copy: true
+      feature_names_in_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id004
+        - false
+        - - setting_2
+      mean_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          CGi0Im7wcD8=
+      n_features_in_: 1
+      n_samples_seen_: !!python/object/apply:numpy.core.multiarray.scalar
+      - *id002
+      - !!binary |
+        WjAAAAAAAAA=
+      scale_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          PMKRsuH27z8=
+      var_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          ZcRL/sXt7z8=
+      with_mean: true
+      with_std: true
+    setting_3: !!python/object:sklearn.preprocessing._data.StandardScaler
+      _sklearn_version: 1.5.1
+      copy: true
+      feature_names_in_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id004
+        - false
+        - - setting_3
+      mean_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          AAAAAAAAAAA=
+      n_features_in_: 1
+      n_samples_seen_: !!python/object/apply:numpy.core.multiarray.scalar
+      - *id002
+      - !!binary |
+        WjAAAAAAAAA=
+      scale_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          AAAAAAAA8D8=
+      var_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          AAAAAAAAAAA=
+      with_mean: true
+      with_std: true
+    time_idx: !!python/object:sklearn.preprocessing._data.StandardScaler
+      _sklearn_version: 1.5.1
+      copy: true
+      feature_names_in_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id004
+        - false
+        - - time_idx
+      mean_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          P+8IyAz3WkA=
+      n_features_in_: 1
+      n_samples_seen_: !!python/object/apply:numpy.core.multiarray.scalar
+      - *id002
+      - !!binary |
+        WjAAAAAAAAA=
+      scale_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          oKcWyBo+UUA=
+      var_: !!python/object/apply:numpy.core.multiarray._reconstruct
+        args:
+        - *id001
+        - !!python/tuple
+          - 0
+        - !!binary |
+          Yg==
+        state: !!python/tuple
+        - 1
+        - !!python/tuple
+          - 1
+        - *id003
+        - false
+        - !!binary |
+          2Kfr+OmUskA=
+      with_mean: true
+      with_std: true
+  static_categoricals: &id009
+  - engine
+  static_reals: &id010 []
+  target: target
+  target_normalizer: &id008 !!python/object:pytorch_forecasting.data.encoders.GroupNormalizer
+    center: true
+    groups:
+    - engine
+    method: standard
+    method_kwargs: {}
+    missing_:
+      center: 98.49113343253968
+      scale: 56.96752923678923
+    norm_: !!python/object:pandas.core.frame.DataFrame
+      _flags:
+        allows_duplicate_labels: true
+      _metadata: []
+      _mgr: !!python/object/apply:pandas.core.internals.managers.BlockManager
+      - !!python/tuple
+        - !!python/object/apply:pandas._libs.internals._unpickle_block
+          - !!python/object/apply:numpy.core.multiarray._reconstruct
+            args:
+            - *id001
+            - !!python/tuple
+              - 0
+            - !!binary |
+              Yg==
+            state: !!python/tuple
+            - 1
+            - !!python/tuple
+              - 2
+              - 100
+            - *id003
+            - false
+            - !!binary |
+              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
+              x1pLQA==
+          - !!python/object/apply:builtins.slice
+            - 0
+            - 2
+            - 1
+          - 2
+      - - !!python/object/apply:pandas.core.indexes.base._new_Index
+          - &id005 !!python/name:pandas.core.indexes.base.Index ''
+          - data: !!python/object/apply:numpy.core.multiarray._reconstruct
+              args:
+              - *id001
+              - !!python/tuple
+                - 0
+              - !!binary |
+                Yg==
+              state: !!python/tuple
+              - 1
+              - !!python/tuple
+                - 2
+              - *id004
+              - false
+              - - center
+                - scale
+            name: null
+        - !!python/object/apply:pandas.core.indexes.base._new_Index
+          - *id005
+          - data: !!python/object/apply:numpy.core.multiarray._reconstruct
+              args:
+              - *id001
+              - !!python/tuple
+                - 0
+              - !!binary |
+                Yg==
+              state: !!python/tuple
+              - 1
+              - !!python/tuple
+                - 100
+              - !!python/object/apply:numpy.dtype
+                args:
+                - i4
+                - false
+                - true
+                state: !!python/tuple
+                - 3
+                - <
+                - null
+                - null
+                - null
+                - -1
+                - -1
+                - 0
+              - false
+              - !!binary |
+                AQAAAAIAAAADAAAABAAAAAUAAAAGAAAABwAAAAgAAAAJAAAACgAAAAsAAAAMAAAADQAAAA4AAAAP
+                AAAAEAAAABEAAAASAAAAEwAAABQAAAAVAAAAFgAAABcAAAAYAAAAGQAAABoAAAAbAAAAHAAAAB0A
+                AAAeAAAAHwAAACAAAAAhAAAAIgAAACMAAAAkAAAAJQAAACYAAAAnAAAAKAAAACkAAAAqAAAAKwAA
+                ACwAAAAtAAAALgAAAC8AAAAwAAAAMQAAADIAAAAzAAAANAAAADUAAAA2AAAANwAAADgAAAA5AAAA
+                OgAAADsAAAA8AAAAPQAAAD4AAAA/AAAAQAAAAEEAAABCAAAAQwAAAEQAAABFAAAARgAAAEcAAABI
+                AAAASQAAAEoAAABLAAAATAAAAE0AAABOAAAATwAAAFAAAABRAAAAUgAAAFMAAABUAAAAVQAAAFYA
+                AABXAAAAWAAAAFkAAABaAAAAWwAAAFwAAABdAAAAXgAAAF8AAABgAAAAYQAAAGIAAABjAAAAZAAA
+                AA==
+            name: engine
+      _typ: dataframe
+      attrs: {}
+    scale_by_group: false
+    transformation: null
+  time_idx: time_idx
+  time_varying_known_categoricals: &id011 []
+  time_varying_known_reals: &id012
+  - time_idx
+  - setting_1
+  - setting_2
+  - setting_3
+  - Fan_inlet_temperature_R
+  - LPC_outlet_temperature_R
+  - HPC_outlet_temperature_R
+  - LPT_outlet_temperature_R
+  - Fan_inlet_Pressure_psia
+  - bypass_duct_pressure_psia
+  - HPC_outlet_pressure_psia
+  - Physical_fan_speed_rpm
+  - Physical_core_speed_rpm
+  - Engine_pressure_ratioP50_P2
+  - HPC_outlet_Static_pressure_psia
+  - Ratio_of_fuel_flow_to_Ps30_pps_psia
+  - Corrected_fan_speed_rpm
+  - Corrected_core_speed_rpm
+  - Bypass_Ratio
+  - Burner_fuel_air_ratio
+  - Bleed_Enthalpy
+  - Required_fan_speed
+  - Required_fan_conversion_speed
+  - High_pressure_turbines_Cool_air_flow
+  - Low_pressure_turbines_Cool_air_flow
+  time_varying_unknown_categoricals: []
+  time_varying_unknown_reals:
+  - target
+  variable_groups: *id006
+  weight: null
+dropout: 0.1
+embedding_labels:
+  engine: *id007
+embedding_paddings:
+- engine
+embedding_sizes:
+  engine: !!python/tuple
+  - 101
+  - 21
+hidden_continuous_size: 8
+hidden_continuous_sizes: {}
+hidden_size: 16
+learning_rate: 0.03
+log_gradient_flow: false
+log_interval: -1
+log_val_interval: null
+lstm_layers: 1
+max_encoder_length: 20
+monotone_constaints: {}
+optimizer: adam
+optimizer_params: null
+output_size: 7
+output_transformer: *id008
+reduce_on_plateau_min_lr: 1.0e-05
+reduce_on_plateau_patience: 4
+reduce_on_plateau_reduction: 2.0
+share_single_variable_networks: false
+static_categoricals: *id009
+static_reals: *id010
+time_varying_categoricals_decoder: *id011
+time_varying_categoricals_encoder: []
+time_varying_reals_decoder: *id012
+time_varying_reals_encoder:
+- time_idx
+- setting_1
+- setting_2
+- setting_3
+- Fan_inlet_temperature_R
+- LPC_outlet_temperature_R
+- HPC_outlet_temperature_R
+- LPT_outlet_temperature_R
+- Fan_inlet_Pressure_psia
+- bypass_duct_pressure_psia
+- HPC_outlet_pressure_psia
+- Physical_fan_speed_rpm
+- Physical_core_speed_rpm
+- Engine_pressure_ratioP50_P2
+- HPC_outlet_Static_pressure_psia
+- Ratio_of_fuel_flow_to_Ps30_pps_psia
+- Corrected_fan_speed_rpm
+- Corrected_core_speed_rpm
+- Bypass_Ratio
+- Burner_fuel_air_ratio
+- Bleed_Enthalpy
+- Required_fan_speed
+- Required_fan_conversion_speed
+- High_pressure_turbines_Cool_air_flow
+- Low_pressure_turbines_Cool_air_flow
+- target
+weight_decay: 0.0
+x_categoricals:
+- engine
+x_reals:
+- time_idx
+- setting_1
+- setting_2
+- setting_3
+- Fan_inlet_temperature_R
+- LPC_outlet_temperature_R
+- HPC_outlet_temperature_R
+- LPT_outlet_temperature_R
+- Fan_inlet_Pressure_psia
+- bypass_duct_pressure_psia
+- HPC_outlet_pressure_psia
+- Physical_fan_speed_rpm
+- Physical_core_speed_rpm
+- Engine_pressure_ratioP50_P2
+- HPC_outlet_Static_pressure_psia
+- Ratio_of_fuel_flow_to_Ps30_pps_psia
+- Corrected_fan_speed_rpm
+- Corrected_core_speed_rpm
+- Bypass_Ratio
+- Burner_fuel_air_ratio
+- Bleed_Enthalpy
+- Required_fan_speed
+- Required_fan_conversion_speed
+- High_pressure_turbines_Cool_air_flow
+- Low_pressure_turbines_Cool_air_flow
+- target

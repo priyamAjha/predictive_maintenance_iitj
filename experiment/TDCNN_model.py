@@ -9,17 +9,18 @@ class TemporalBlock(nn.Module):
         self.conv2 = nn.Conv1d(out_channels, out_channels, kernel_size, stride=stride, padding='same', dilation=dilation)
         self.residual = nn.Conv1d(in_channels, out_channels, kernel_size =1) if in_channels != out_channels else None
         self.relu = nn.ReLU()
+        self.dropout = nn.Dropout(0.2) 
 
     def forward(self, x):
-        # print(f"TCN_input_shape: {x.shape}")
         out = self.relu(self.conv1(x))
-        # print('conv1:', out.shape)
+        # print(out.shape)
+        # out = self.dropout(out) #TODO newly added 
         out = self.conv2(out)
-        # print('conv2', out.shape)
+        # print(out.shape)
+        # out = self.dropout(out) #TODO newly added 
         if self.residual:   
             x = self.residual(x)
-            # print('resid:', x.shape)
-        # print('^'*20)
+        # print(out.shape, x.shape)
         return self.relu(out + x)
 
 class TCN(nn.Module):
@@ -58,16 +59,13 @@ class FPCASETCN(nn.Module):
         self.tcn = TCN(input_size, tcn_channels, kernel_size) #26, [64, 128, 256], 2
         self.se_block = SEBlock(tcn_channels[-1], reduction=se_reduction) # 256, 16
         self.fc = nn.Linear(tcn_channels[-1], 1)  # Output for RUL prediction
-
+        # self.dropout = nn.Dropout(0.2)  
     def forward(self, x):
         tcn_out = self.tcn(x)
-        # print('*'*50)
         se_out = self.se_block(tcn_out)
-        # print(f"se_out.shape: {se_out.shape}")
-        # print('&'*50)
         se_out = torch.mean(se_out, dim=-1)  # Global average pooling
-        # print(f"se_out_mean.shape: {se_out.shape}")
-        # print('%'*50)
+        # se_out, _ = torch.max(se_out, dim=-1)
+        # se_out = self.dropout(se_out) #TODO newly added
         return self.fc(se_out)
 
 if __name__=='__main__':

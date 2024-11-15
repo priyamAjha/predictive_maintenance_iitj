@@ -57,6 +57,7 @@ class TransformerEncoderLayer(nn.Module):
 
 class DEformer(nn.Module):
     # model = DEformer(input_dim=16, embed_dim=64, num_heads=4, num_layers=2, output_dim=1, seq_len=20)
+    ## model = DEformer(26, 32, 4, 2, 1, 26)
     def __init__(self, input_dim, embed_dim, num_heads, num_layers, output_dim, seq_len):
         super(DEformer, self).__init__()
         
@@ -103,8 +104,9 @@ class DEformer(nn.Module):
     
 if __name__ == '__main__':
     # Hyperparameters
-    input_dim = 16        # Number of features
-    seq_len = 16 #20          # Sequence length
+    Number_of_features = 18
+    input_dim = Number_of_features   # Number of features
+    seq_len = 20          # Sequence length
     embed_dim = 64        # Embedding dimension
     num_heads = 4         # Number of attention heads
     num_layers = 2        # Number of Transformer layers in each encoder
